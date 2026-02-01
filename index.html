@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScoreHabit - Master Your Repertoire</title>
+    <meta
+      name="description"
+      content="The ultimate practice tracker for musicians. Track measures, manage repertoire, and visualize your mastery."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: "#0B1120",
+                card: "#151F32",
+                accent: "#10B981",
+                secondary: "#3B82F6",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            backgroundImage: {
+              // USANDO TUS IMÁGENES GENERADAS
+              conductor: "url('img/Conductor.png')",
+              soloist: "url('img/violinist.png')",
+              score: "url('img/cellist.png')",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0b1120;
+        color: #e2e8f0;
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-nav {
+        background: rgba(11, 17, 32, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .mockup-glow {
+        box-shadow: 0 0 50px -15px rgba(16, 185, 129, 0.4);
+      }
+      /* Máscara suave para que la imagen de fondo no corte brusco */
+      .mask-vignette {
+        mask-image: linear-gradient(to right, black 40%, transparent 100%);
+        -webkit-mask-image: linear-gradient(
+          to right,
+          black 40%,
+          transparent 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="antialiased font-sans">
+    <nav class="fixed w-full z-50 glass-nav">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-music text-brand-accent text-xl"></i>
+          <span class="text-xl font-bold tracking-tight text-white font-serif"
+            >ScoreHabit</span
+          >
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+          <a href="#repertoire" class="hover:text-white transition"
+            >Repertoire</a
+          >
+          <a href="#measures" class="hover:text-white transition">Tracking</a>
+          <a href="#analytics" class="hover:text-white transition">Analytics</a>
+        </div>
+        <a
+          href="#download"
+          class="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-5 py-2 rounded-full font-semibold text-sm transition backdrop-blur-sm"
+        >
+          Get App
+        </a>
+      </div>
+    </nav>
+
+    <header
+      class="relative pt-36 pb-28 px-6 overflow-hidden bg-conductor bg-cover bg-center bg-no-repeat bg-fixed"
+    >
+      <div class="absolute inset-0 bg-brand-dark/70 mix-blend-multiply"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/40"
+      ></div>
+
+      <div
+        class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+      >
+        <div class="space-y-8">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-accent text-xs font-semibold uppercase tracking-wider backdrop-blur-md"
+          >
+            <span
+              class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"
+            ></span>
+            Elevate Your Study
+          </div>
+
+          <h1
+            class="text-5xl md:text-7xl font-serif font-bold leading-tight text-white drop-shadow-2xl"
+          >
+            Master the <br />
+            <span class="text-gradient">Performance.</span>
+          </h1>
+
+          <p
+            class="text-lg text-gray-200 max-w-lg leading-relaxed font-light drop-shadow"
+          >
+            The stage awaits. Track every measure of your journey, from the
+            first sight-reading to the final standing ovation.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a
+              href="#"
+              class="flex items-center gap-4 bg-brand-accent hover:bg-emerald-500 text-white px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-xl shadow-emerald-900/30 w-fit group"
+            >
+              <i
+                class="fab fa-google-play text-2xl group-hover:rotate-12 transition"
+              ></i>
+              <div class="text-left">
+                <div
+                  class="text-[10px] uppercase font-bold opacity-80 text-white"
+                >
+                  Download on
+                </div>
+                <div class="font-bold leading-none text-lg">Google Play</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative flex justify-center lg:justify-end">
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-accent/20 rounded-full blur-[120px]"
+          ></div>
+          <img
+            src="img/01PortadaDark.jpeg"
+            alt="ScoreHabit"
+            class="relative w-[280px] md:w-[320px] rounded-[2.5rem] border-[6px] border-gray-800 shadow-2xl mockup-glow rotate-[-3deg] hover:rotate-0 transition duration-700 ease-out z-20"
+          />
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="repertoire"
+      class="relative py-28 bg-brand-dark overflow-hidden"
+    >
+      <div
+        class="absolute right-0 top-0 h-full w-full md:w-3/5 bg-soloist bg-cover bg-right-top opacity-40 mix-blend-screen grayscale mask-vignette"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-transparent"
+      ></div>
+
+      <div
+        class="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center"
+      >
+        <div class="order-2 md:order-1 flex justify-center">
+          <img
+            src="img/MyWorksDark.jpeg"
+            alt="Works"
+            class="relative w-72 rounded-[2rem] border border-gray-700 shadow-2xl rotate-3 hover:rotate-0 transition duration-500 z-20"
+          />
+        </div>
+        <div class="order-1 md:order-2 space-y-6">
+          <h2
+            class="text-4xl md:text-5xl font-serif font-bold text-white drop-shadow-lg"
+          >
+            Your Digital Library
+          </h2>
+          <p class="text-gray-300 text-lg font-light leading-relaxed">
+            Organize movements, sonatas, and concertos. Designed by musicians
+            who know that organization is the foundation of artistry.
+          </p>
+
+          <div class="space-y-6 pt-4">
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-brand-accent border border-gray-700 shrink-0"
+              >
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white font-serif text-xl">
+                  Movements & Sections
+                </h4>
+                <p class="text-sm text-gray-400 mt-1 text-balance">
+                  Structure your practice by movements to focus on what really
+                  matters.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="measures"
+      class="py-24 bg-brand-card relative border-y border-gray-800"
+    >
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-white">
+            Measure by Measure
+          </h2>
+          <p class="text-gray-400 text-lg">
+            Identify the hard passages. Conquer them with precision.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-10">
+            <div
+              class="group border-l-2 border-brand-accent/30 pl-6 hover:border-brand-accent transition"
+            >
+              <h3
+                class="text-2xl font-serif font-bold text-white mb-2 italic tracking-wide"
+              >
+                Granular Tracking
+              </h3>
+              <p class="text-gray-400">
+                Mark m. 45-52 as "Needs Work". Focus your energy on the actual
+                challenges of the score.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <img
+              src="img/MeasuresBreakdownDark.jpeg"
+              alt="Measures"
+              class="w-full max-w-sm rounded-[1rem] border-2 border-gray-700 shadow-2xl shadow-brand-dark/50"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-brand-dark">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+          <div class="flex justify-center relative">
+            <img
+              src="img/MetronomeLIght.jpeg"
+              alt="Metronome"
+              class="relative w-72 rounded-[2rem] border-8 border-gray-200 shadow-2xl z-10"
+            />
+          </div>
+          <div class="space-y-6">
+            <h2
+              class="text-3xl md:text-4xl font-serif font-bold text-white text-gradient"
+            >
+              Smart Practice Tools
+            </h2>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Our metronome doesn't just keep time; it keeps score. Every beat
+              is logged as active practice time automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="relative py-32 overflow-hidden bg-brand-dark">
+      <div
+        class="absolute inset-0 bg-score bg-cover bg-center opacity-20 mix-blend-overlay"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"
+      ></div>
+
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-8">
+        <h2
+          class="text-5xl md:text-7xl font-serif font-bold text-white drop-shadow-xl italic"
+        >
+          Ready to Perform?
+        </h2>
+        <p
+          class="text-xl text-gray-300 font-light max-w-xl mx-auto tracking-wide"
+        >
+          Join the elite circle of musicians who practice with purpose.
+        </p>
+
+        <div class="flex flex-col items-center gap-4 pt-6">
+          <a
+            href="#"
+            class="flex items-center gap-4 bg-white text-brand-dark px-10 py-5 rounded-full font-bold text-xl transition hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.2)]"
+          >
+            <i class="fab fa-google-play text-3xl"></i>
+            <span>Download ScoreHabit</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-10 bg-black text-center text-gray-600 text-sm border-t border-gray-900"
+    >
+      <p class="font-serif tracking-[0.2em] uppercase">
+        ScoreHabit &copy; 2024
+      </p>
+    </footer>
+  </body>
+</html>
